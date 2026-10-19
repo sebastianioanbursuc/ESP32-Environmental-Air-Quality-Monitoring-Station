@@ -1,32 +1,44 @@
-**ESP32 Air Quality, Temperature and Humidity Monitor**
-Simple project made with an ESP32 board, a gas sensor, a temperature and humidity sensor, and a small OLED display.
+# ESP32 Environmental & Air Quality Monitor
 
-**Components Used:**
-1.ESP32 DevKit Board
-2.MQ-135 Gas Sensor
-3.DHT11 Temperature and Humidity Sensor
-4.0.96 inch I2C OLED Display (128x64)
-5.Breadboard and Jumper Wires
+A simple IoT project built with an ESP32 board to monitor real-time air quality, temperature, and humidity, displaying the data on an OLED screen.
 
-**Wiring Connections**
-OLED Display (I2C):
--SDA -> GPIO 25
--SCL -> GPIO 33
--VCC -> 3.3V
--GND -> GND
+## Features
+- Air quality measurement using the MQ-135 gas sensor
+- Temperature and humidity readings with the DHT11 sensor
+- Live data visualization on a 0.96" I2C OLED display (SSD1306)
 
-**MQ-135 Sensor (Gas):**
--AO (Analog Out) -> GPIO 34
--VCC -> 5V
--GND -> GND
+## Hardware Used
+- ESP32 DevKit
+- MQ-135 Air Quality Sensor
+- DHT11 Temperature & Humidity Sensor
+- 0.96" I2C OLED Display (128x64)
+- Breadboard & Jumper Wires
 
-**DHT11 Sensor (Temperature / Humidity):**
--S (Data) -> GPIO 14
--VCC -> 3.3V
--GND -> GND
+## Wiring Connections
 
-**Libraries Used in Arduino IDE**
-To run the code, install these libraries from Library Manager:
--Adafruit SSD1306
--Adafruit GFX Library
--DHT sensor library by Adafruit
+### OLED Display (I2C)
+- SDA -> GPIO 25
+- SCL -> GPIO 33
+- VCC -> 3.3V
+- GND -> GND
+
+### MQ-135 Sensor (Gas)
+- AO (Analog Output) -> GPIO 34
+- VCC -> 5V
+- GND -> GND
+
+### DHT11 Sensor (Temperature / Humidity)
+- S (Data) -> GPIO 14
+- VCC -> 3.3V
+- GND -> GND
+
+## Libraries Required
+Install the following libraries in Arduino IDE from the Library Manager:
+- Adafruit SSD1306
+- Adafruit GFX Library
+- DHT sensor library (by Adafruit)
+
+## How It Works
+1. The ESP32 reads the analog value from the MQ-135 sensor and maps it to a percentage (0–100%).
+2. It fetches temperature and humidity values from the DHT11 sensor.
+3. All values are refreshed every 2 seconds and rendered on the OLED display.
