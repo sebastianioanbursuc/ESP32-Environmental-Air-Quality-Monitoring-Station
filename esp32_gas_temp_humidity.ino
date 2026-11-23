@@ -8,8 +8,8 @@
 
 Adafruit_SSD1306 display(128, 64, &Wire, -1);
 
-#define DHTPIN 14     // Pinul unde ai legat semnalul (S)
-#define DHTTYPE DHT11 // Tipul senzorului
+#define DHTPIN 14    
+#define DHTTYPE DHT11 
 
 DHT dht(DHTPIN, DHTTYPE);
 
@@ -22,7 +22,7 @@ void setup() {
 
 void loop() {
   int citire = analogRead(MQ135_PIN);
-  int procent = map(citire, 0, 4095, 0, 100); // Convertește scara 0-4095 în 0-100%
+  int procent = map(citire, 0, 4095, 0, 100); 
   float temp = dht.readTemperature();
   float umid = dht.readHumidity();
   display.clearDisplay();
